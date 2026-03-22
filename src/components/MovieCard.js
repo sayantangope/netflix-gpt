@@ -1,12 +1,26 @@
 import React from "react";
 import { IMG_CDN } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addSelectedMovieID } from "../utils/moviesSlice";
+import { useNavigate } from "react-router-dom";
 
-const MovieCard = ({ posterPath, title }) => {
-  if (!posterPath) return null;
+const MovieCard = ({ posterPath, title, id }) => {
+  
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+if (!posterPath) return null;
+
+const handleMovieClick = () => {
+  dispatch(addSelectedMovieID(id));
+  navigate(`/movietrailer/${id}`);
+}
 
   return (
-    <div className="flex-shrink-0 w-28 sm:w-32 md:w-40 lg:w-44 cursor-pointer transform transition-all duration-300 ease-out hover:scale-105 hover:z-10 group rounded-lg overflow-hidden shadow-md hover:shadow-2xl">
+    <div onClick={handleMovieClick} className="flex-shrink-0 w-28 sm:w-32 md:w-40 lg:w-44 cursor-pointer transform transition-all duration-300 ease-out hover:scale-105 hover:z-10 group rounded-lg overflow-hidden shadow-md hover:shadow-2xl">
       {/* Poster */}
+    
       <div className="relative">
         <img
           className="w-full object-cover rounded-t-lg"

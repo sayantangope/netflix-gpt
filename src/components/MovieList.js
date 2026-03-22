@@ -18,7 +18,7 @@ const MovieList = ({ title, movies }) => {
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {movies.map((movie) => (
-          <MovieCard key={movie.id} posterPath={movie.poster_path} title={movie.title} />
+          <MovieCard key={movie.id} id={movie.id} posterPath={movie.poster_path} title={movie.title} />
         ))}
       </div>
     </div>
