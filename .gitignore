@@ -12,7 +12,7 @@
 /build
 
 # learning
-.LEARNING.md
+LEARNING.md
 # misc
 .DS_Store
 .env
